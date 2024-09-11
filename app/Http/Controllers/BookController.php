@@ -51,7 +51,7 @@ class BookController extends Controller
             return response()->json([
                 'status' => 404,
                 'message' => 'Ada Kesalahan',
-                'data' => $validator->erros(),
+                'data' => $validator->errors(),
             ]);
         }
 
@@ -142,7 +142,7 @@ class BookController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Sukses update data Books'
+            'message' => 'Berhasil update data Books'
         ], 200);
     }
 
@@ -164,7 +164,7 @@ class BookController extends Controller
 
         return response()->json([
             'status' => 200,
-            'message' => 'Sukses menghapus data Books'
+            'message' => 'Berhasil menghapus data Books'
         ], 200);
     }
 }
