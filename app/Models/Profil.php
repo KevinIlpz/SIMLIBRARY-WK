@@ -5,17 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rack extends Model
+class Profil extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'number'
+        'profil_id',
+        'judul_profil',
+        'isi_profil',
+        'status',
+        'image',
     ];
-
-    public function books()
-    {
-        return $this->hasMany(Book::class);
-    }
 }
