@@ -142,7 +142,7 @@ class GaleriController extends Controller
         if (!$galeri) {
             return response()->json([
                 'status' => 400,
-                'message' => 'Data Galeri tidak ditemukan',
+                'message' => 'Gagal Mengahapus Data Galeri',
             ], 400);
         }
 

@@ -147,7 +147,7 @@ class ArtikelController extends Controller
         {
             return response()->json([
                 'status' => 400,
-                'message' => 'Data Artikel tidak ditemukan',
+                'message' => 'Gagal Mengahapus Data Artikel',
             ], 400);
         }
 

@@ -1,24 +1,11 @@
 <?php
 
 use Illuminate\http\Request;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\RackController;
 use App\Http\Controllers\BukutamuController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\GaleriKategoriController;
-
-//Books
-Route::post('/book', [BookController::class, 'create']);
-Route::get('/book', [BookController::class, 'index']);
-Route::put('/book/{id}', [BookController::class, 'update']);
-Route::delete('/book/{id}', [BookController::class, 'destroy']);
-
-//Racks
-Route::post('/rack', [BookController::class, 'create']);
-Route::get('/rack', [BookController::class, 'index']);
-Route::put('/rack/{id}', [BookController::class, 'update']);
-Route::delete('/rack/{id}', [BookController::class, 'destroy']);
+use App\Http\Controllers\ProfilController;
 
 //Bukutamu
 Route::post('/bukutamu', [BukutamuController::class, 'create']);
@@ -43,6 +30,12 @@ Route::post('/galerikategori', [GaleriKategoriController::class, 'create']);
 Route::get('/galerikategori', [GaleriKategoriController::class, 'index']);
 Route::put('/galerikategori/{id}', [GaleriKategoriController::class, 'update']);
 Route::delete('/galerikategori/{id}', [GaleriKategoriController::class, 'destroy']);
+
+//Profil
+Route::post('/profil', [ProfilController::class, 'create']);
+Route::get('/profil', [ProfilController::class, 'index']);
+Route::put('/profil/{id}', [ProfilController::class, 'update']);
+Route::delete('/profil/{id}', [ProfilController::class, 'destroy']);
 
 Route::get('/', function () {
     return view('welcome');
