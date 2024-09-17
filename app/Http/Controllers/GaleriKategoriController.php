@@ -126,12 +126,11 @@ class GaleriKategoriController extends Controller
     public function destroy(GaleriKategori $galeriKategori, string $id)
     {
         $galeriKategori = GaleriKategori::find($id);
-
         if(!$galeri) 
         {
             return response()->json([
                 'status' => 400,
-                'message' => 'Data GaleriKategori tidak ditemukan'
+                'message' => 'Gagal Menghapus Data GaleriKategori',
             ], 400);
         }
 

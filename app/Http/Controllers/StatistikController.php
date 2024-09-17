@@ -93,7 +93,7 @@ class StatistikController extends Controller
         if (!$statistik) {
             return response()->json([
                 'error' => true,
-                 'message' =>  'Data Statistik tidak ditemukan',
+                'message' =>  'Data Statistik tidak ditemukan',
             ], 404);
         }
 
@@ -110,8 +110,8 @@ class StatistikController extends Controller
             ], 400);
         }
 
-        $statistik->ip = $request->ip;
-        $statistik->tanggal = $request->tanggal;
+        $statistik->ip = $request->input('ip');
+        $statistik->tanggal = $request->input('tanggal');
         
         $statistik->save();
         

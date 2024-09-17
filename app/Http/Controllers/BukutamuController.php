@@ -142,7 +142,7 @@ class BukutamuController extends Controller
         {
             return response()->json([
                 'status' => 400,
-                'message' => 'Data BukuTamu tidak ditemukan',
+                'message' => 'Gagal Menghapus Data BukuTamu',
             ], 400);
         }
 

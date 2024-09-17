@@ -141,7 +141,7 @@ class ProfilController extends Controller
         if(!$profil) {
             return response()->json([
                 'status' => 400,
-                'data' => 'Data Profil Tidak Ditemukan',
+                'data' => 'Gagal Menghapus Data Profil',
             ], 400);
         }
 
