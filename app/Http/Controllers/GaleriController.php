@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Http\Contorllers\Controller;
 use App\Models\Galeri;
 use Illuminate\Http\Request;
 use Validator;
+=======
+use App\Models\Galeri;
+use Illuminate\Http\Request;
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
 
 class GaleriController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+<<<<<<< HEAD
     public function index(Request $request)
     {
         $galeri = Galeri::all();
@@ -28,11 +34,17 @@ class GaleriController extends Controller
             'message' => 'Data Galeri Ditemukan',
             'status' => 200,
         ], 200);
+=======
+    public function index()
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
      * Show the form for creating a new resource.
      */
+<<<<<<< HEAD
     public function create(Request $request)
     {
         $validator = Galeri::make($request->all(), [
@@ -63,6 +75,11 @@ class GaleriController extends Controller
             'data' => 200,
             'message' => 'Data Galeri Berhasil Ditambahkan',
         ], 200);
+=======
+    public function create()
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
@@ -92,6 +109,7 @@ class GaleriController extends Controller
     /**
      * Update the specified resource in storage.
      */
+<<<<<<< HEAD
     public function update(Request $request, Galeri $galeri, string $id)
     {
         $galeri = Galeri::find($id);
@@ -130,11 +148,17 @@ class GaleriController extends Controller
             'data' => 200,
             'message' => 'Data Galeri berhasil Diupdate',
         ], 200);
+=======
+    public function update(Request $request, Galeri $galeri)
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
      * Remove the specified resource from storage.
      */
+<<<<<<< HEAD
     public function destroy(Galeri $galeri, string $id)
     {
         $galeri = Galeri::find($id);
@@ -152,5 +176,10 @@ class GaleriController extends Controller
             'data' => 200,
             'message' => 'Data Galeri berhasil dihapus'
         ], 200);
+=======
+    public function destroy(Galeri $galeri)
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 }
