@@ -24,4 +24,6 @@ Route::get('/ebook', [eBookController::class, 'index'])->name('ebook');
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [IndexAdminController::class, 'index'])->name('index');
     Route::get('/blog', [BlogAdminController::class, 'index'])->name('blog');
+Route::get('/login', function () {
+    return view('login');
 });

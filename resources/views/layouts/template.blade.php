@@ -16,6 +16,11 @@
             .desktop-menu { display: none; }
         }
     </style>
+    <script>
+        function toggleFlyout() {
+            document.getElementById('flyoutMenu').classList.toggle('hidden');
+        }
+    </script>
 </head>
 <body class="relative">
     <!-- Navbar Section -->
@@ -43,8 +48,25 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                             <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
                         </svg>
+                <div class="relative">
+                    <button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 bg-[#e7edf3] text-[#0e141b] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+                        onclick="toggleFlyout()">
+                        <div class="text-[#0e141b]" data-icon="User" data-size="20px" data-weight="regular">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path>
+                            </svg>
+                        </div>
+                    </button>
+
+                    <!-- Flyout Menu -->
+                    <div id="flyoutMenu" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg hidden">
+                        <div class="px-4 py-3">
+                            <p class="text-sm text-gray-900">John Doe</p>
+                        </div>
+                        <div class="border-t border-gray-200"></div>
+                        <a href="login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Login</a>
                     </div>
-                </button>
+                </div>
             </div>
             <div class="mobile-menu flex items-center lg:hidden">
                 <button id="hamburger-button" class="focus:outline-none">

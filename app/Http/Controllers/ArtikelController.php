@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Artikel;
 use Validator;
+=======
+use App\Models\Artikel;
+use Illuminate\Http\Request;
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
 
 class ArtikelController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+<<<<<<< HEAD
     public function index(Request $request)
     {
         $artikel = Artikel::all();
@@ -28,11 +34,17 @@ class ArtikelController extends Controller
             'message' => 'Data Artikel Ditemukan',
             'status' => 200,
         ], 200);
+=======
+    public function index()
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
      * Show the form for creating a new resource.
      */
+<<<<<<< HEAD
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -66,6 +78,12 @@ class ArtikelController extends Controller
         ], 200);
     }
         
+=======
+    public function create()
+    {
+        //
+    }
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
 
     /**
      * Store a newly created resource in storage.
@@ -94,6 +112,7 @@ class ArtikelController extends Controller
     /**
      * Update the specified resource in storage.
      */
+<<<<<<< HEAD
     public function update(Request $request, Artikel $artikel, string $id)
     {
         $artikel = Artikel::find($id);
@@ -134,11 +153,17 @@ class ArtikelController extends Controller
             'data' => 200,
             'message' => 'Data Artikel Berhasil diupdate'
         ], 200);
+=======
+    public function update(Request $request, Artikel $artikel)
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
      * Remove the specified resource from storage.
      */
+<<<<<<< HEAD
     public function destroy(Artikel $artikel, string $id)
     {
         $artikel = Artikel::find($id);
@@ -157,5 +182,10 @@ class ArtikelController extends Controller
             'data' => 200,
             'message' => 'Data Artikel Berhasil dihapus'
         ], 200);   
+=======
+    public function destroy(Artikel $artikel)
+    {
+        //
+>>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 }
