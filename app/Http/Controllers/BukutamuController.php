@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Bukutamu;
 use Validator;
-=======
-use App\Models\Bukutamu;
-use Illuminate\Http\Request;
->>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
 
 class BukutamuController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-<<<<<<< HEAD
     public function index(Request $request)
     {
         $bukutamu = BukuTamu::all();
@@ -34,17 +28,11 @@ class BukutamuController extends Controller
             'message' => 'Data BukuTamu ditemukan',
             'status' => 200,
         ], 200);
-=======
-    public function index()
-    {
-        //
->>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
      * Show the form for creating a new resource.
      */
-<<<<<<< HEAD
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -74,11 +62,6 @@ class BukutamuController extends Controller
             'data' => 200,
             'message' => 'Data BukuTamu berhasil ditambahkan',
         ]);
-=======
-    public function create()
-    {
-        //
->>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
@@ -108,7 +91,6 @@ class BukutamuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-<<<<<<< HEAD
     public function update(Request $request, Bukutamu $bukutamu, string $id)
     {
         $bukutamu = BukuTamu::find($id);
@@ -147,17 +129,11 @@ class BukutamuController extends Controller
                 'message' => 'Berhasil Update data BukuTamu'
             ]);
         }
-=======
-    public function update(Request $request, Bukutamu $bukutamu)
-    {
-        //
->>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 
     /**
      * Remove the specified resource from storage.
      */
-<<<<<<< HEAD
     public function destroy(Bukutamu $bukutamu, string $id)
     {
         $bukutamu = BukuTamu::find($id);
@@ -176,10 +152,5 @@ class BukutamuController extends Controller
             'status' => 200,
             'message' => 'Data BukuTamu Berhasil Dihapus'
         ], 200);
-=======
-    public function destroy(Bukutamu $bukutamu)
-    {
-        //
->>>>>>> 56214c5c41d33d76a19f7074597dbb05176dac60
     }
 }
