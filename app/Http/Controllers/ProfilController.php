@@ -92,6 +92,7 @@ class ProfilController extends Controller
     /**
      * Update the specified resource in storage.
      */
+
     public function update(Request $request, Profil $profil, string $id)
     {
         $profil = Profil::find($id);
@@ -130,6 +131,7 @@ class ProfilController extends Controller
             'data' => 200,
             'message' => 'Data Profil Berhasil Diupdate',
         ], 200);
+
     }
 
     /**

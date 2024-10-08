@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -8,15 +9,18 @@ use Validator;
 
 class BukutamuController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
-        $bukutamu = Bukutamu::all();
-        if ($bukutamu->isEmpty()) 
+        $bukutamu = BukuTamu::all();
+        if ($bukutamu->isEmpty) 
         {
             return response()->json([
                 'data' => 'Data BukuTamu Kosong',
                 'error' => true,
-            ], 404);
+            ], 404); //404 Not Found
         }
 
         return response()->json([
@@ -26,25 +30,28 @@ class BukutamuController extends Controller
         ], 200);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'tanggal' => 'required|date',
             'name' => 'required|string|max:50',
             'email' => 'required|string|max:255',
-            'pesan' => 'required|string'
+            'pesan' => 'required|text'
         ]);
 
         if ($validator->fails()) 
         {
             return response()->json([
-                'status' => 400,
+                'status' => 404,
                 'message' => 'Ada Kesalahan',
                 'data' => $validator->errors(),
             ]);
         }
 
-        $bukutamu = Bukutamu::create([
+        $bukutamu = BukuTamu::create([
             'tanggal' => $request->tanggal,
             'name' => $request->name,
             'email' => $request->email,
@@ -52,56 +59,91 @@ class BukutamuController extends Controller
         ]);
 
         return response()->json([
-            'data' => $bukutamu,
+            'data' => 200,
             'message' => 'Data BukuTamu berhasil ditambahkan',
         ]);
     }
 
-    public function update(Request $request, string $id)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $bukutamu = Bukutamu::find($id);
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Bukutamu $bukutamu)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Bukutamu $bukutamu)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Bukutamu $bukutamu, string $id)
+    {
+        $bukutamu = BukuTamu::find($id);
 
         if (!$bukutamu) {
             return response()->json([
-                'status' => 404,
+                'status' => 400,
                 'message' => 'Data BukuTamu tidak ditemukan',
             ]);
-        }
 
-        $validator = Validator::make($request->all(), [
-            'tanggal' => 'required|date',
-            'name' => 'required|string|max:50',
-            'email' => 'required|string|max:255',
-            'pesan' => 'required|string'
-        ]);
+            $validator = BukuTamu::make($request->all(), [
+                'tanggal' => 'required|date',
+                'name' => 'required|string|max:50',
+                'email' => 'required|string|max:255',
+                'pesan' => 'required|text'
+            ]);
 
-        if ($validator->fails()) 
-        {
+            if ($validator->fails()) 
+            {
+                return response()->json([
+                    'status' => 400,
+                    'message' => 'Gagal Melakukan update data BukuTamu',
+                    'data' => $validator->errors(),
+                ], 400);
+            }
+
+            $bukutamu->tanggal = $request->input('tanggal');
+            $bukutamu->name = $request->input('name');
+            $bukutamu->email = $request->input('email');
+            $bukutamu->pesan = $request->input('pesan');
+
+            $bukutamu->save();
+
             return response()->json([
-                'status' => 400,
-                'message' => 'Gagal Melakukan update data BukuTamu',
-                'data' => $validator->errors(),
-            ], 400);
+                'status' => 200,
+                'message' => 'Berhasil Update data BukuTamu'
+            ]);
         }
-
-        $bukutamu->update($request->only(['tanggal', 'name', 'email', 'pesan']));
-
-        return response()->json([
-            'status' => 200,
-            'message' => 'Berhasil Update data BukuTamu'
-        ]);
     }
 
-    public function destroy(string $id)
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Bukutamu $bukutamu, string $id)
     {
-        $bukutamu = Bukutamu::find($id);
+        $bukutamu = BukuTamu::find($id);
 
         if (!$bukutamu) 
         {
             return response()->json([
-                'status' => 404,
-                'message' => 'Data BukuTamu tidak ditemukan',
-            ], 404);
+                'status' => 400,
+                'message' => 'Gagal Menghapus Data BukuTamu',
+            ], 400);
         }
 
         $bukutamu->delete();
